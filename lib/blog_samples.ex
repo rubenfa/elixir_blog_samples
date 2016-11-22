@@ -1,0 +1,2 @@
+defmodule BlogSamples do
+end
