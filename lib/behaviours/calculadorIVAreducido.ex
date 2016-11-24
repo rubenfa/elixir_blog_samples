@@ -1,8 +1,10 @@
 defmodule CalculadorIVAReducido do
-  @behaviour CalculadorImpuestos
+#  @behaviour CalculadorImpuestos
+  use CalculadorImpuestos
+
 
   def calcular(importe) do
-    importe * 1.14
+    CalculadorImpuestos.calcular(importe)
   end
 
 end
