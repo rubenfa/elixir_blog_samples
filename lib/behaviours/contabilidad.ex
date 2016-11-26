@@ -1,10 +1,10 @@
 defmodule Contabilidad do
 
-#  @default_calculator CalculadorIVA 
+  @default_calculator CalculadorIVA 
 
   def calcular_impuestos(lineas_pedido, opts \\ []) do
 
-    {calculador, opts} = Keyword.pop(opts, :calculator, CalculadorIVA)    
+    {calculador, _} = Keyword.pop(opts, :calculator, @default_calculator)    
 
     total_sin_impuestos = calcular_total(lineas_pedido)
     total_con_impuestos = calcular_total_con_impuestos(total_sin_impuestos, calculador)
@@ -18,11 +18,10 @@ defmodule Contabilidad do
   end
 
   defp calcular_total_con_impuestos(importe_total, calculador) do
-    importe_total
-    |> aplicar_impuestos(calculador)
+    importe_total |> aplicar_impuestos(calculador)
   end
 
   defp aplicar_impuestos(importe, calculador) do
-    calculador.calcular(importe)
+    calculador.importe_con_impuestos(importe)
   end
 end

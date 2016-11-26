@@ -1,7 +1,7 @@
 defmodule CalculadorIVASuperReducido do
-  #@behaviour CalculadorImpuestos
+  use CalculadorImpuestos
 
-  def calcular(importe) do
+  def importe_con_impuestos(importe) do
     importe * 1.04
   end
 

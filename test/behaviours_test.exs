@@ -2,7 +2,9 @@ defmodule BehavioursTest do
   use ExUnit.Case
   doctest Behaviours
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  use 
+
+  test "CalculadorIVA añade el 21% al importe pasado como parámetro" do
+    CalculadorIVA.calcular(100) == 121
   end
 end
