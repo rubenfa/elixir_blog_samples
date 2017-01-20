@@ -9,7 +9,7 @@ use Mix.Config
 # 3rd-party users, it should be done in your "mix.exs" file.
 
 # You can configure for your application as:
-#
+g#
 #     config :blog_samples, key: :value
 #
 # And access this configuration in your application as:
