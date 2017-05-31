@@ -1,15 +1,19 @@
-defmodule Example.With.Program1 do
+defmodule Example.With.Program2 do
 
   alias Example.With.User
 
-  def verify(u = %User{}) do
-    u
-    |> validate_name
-    |> validate_age
-    |> accepted_privacy
+  def verify(user = %User{}) do
+    with %User{} <- validate_name(user),
+         %User{} <- validate_age(user),
+         %User{} <- accepted_privacy(user)
+      do
+        user 
+      else
+        {:error, e}->  IO.puts(e)
+     end
   end
 
-  defp validate_name(user = %User{ name: n}) when length(n) == 0 do
+  defp validate_name(%User{ name: n}) when length(n) == 0 do
     {:error, "Name is mandatory"}
   end
 

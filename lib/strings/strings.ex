@@ -12,9 +12,6 @@ defmodule StringsExamples do
     String.upcase(text) |> IO.puts
   end
 
-  def invalid_parser(text <> ":no_compile") do
-    IO.puts(text)
-  end
 
   def command_parser(_) do
     IO.puts("Command not found")
